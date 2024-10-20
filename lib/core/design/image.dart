@@ -16,9 +16,9 @@ class AppImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (path.endsWith("svg")) {
+    if (path.endsWith('svg')) {
       return SvgPicture.asset(
-        "assets/svg/$path",
+        'assets/svg/$path',
         height: height,
         width: width,
         fit: fit,
@@ -29,7 +29,7 @@ class AppImage extends StatelessWidget {
               )
             : null,
       );
-    } else if (path.startsWith("http")) {
+    } else if (path.startsWith('http')) {
       return Image.network(
         path,
         height: height,
@@ -38,9 +38,9 @@ class AppImage extends StatelessWidget {
         color: color,
         errorBuilder: (context, error, stackTrace) => _errorWidget(),
       );
-    } else if (path.endsWith("jpg") || path.endsWith("png")) {
+    } else if (path.endsWith('jpg') || path.endsWith('png')) {
       return Image.asset(
-        "assets/images/$path",
+        'assets/images/$path',
         height: height,
         width: width,
         fit: fit,

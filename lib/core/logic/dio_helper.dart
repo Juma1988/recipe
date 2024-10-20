@@ -12,9 +12,9 @@ class DioHelper {
     BaseOptions(
       //baseUrl: "https://rickandmortyapi.com/api/",
       //baseUrl: "https://project2.amit-learning.com/api/",
-      baseUrl: "",
+      baseUrl: '',
       headers: {
-        "Accept": "application/json",
+        'Accept': 'application/json',
         'Content-Type': 'multipart/form-data',
         //'Authorization': '13358|0hELCcZwjkFfnmr2cEucQsC48z5V3BPoZVjzeVyv'
         'Authorization':'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjUxOTk3NjY5LCJleHAiOjE2ODM1MzM2NjksIm5iZiI6MTY1MTk5NzY2OSwianRpIjoiT3psNnoxS29STG43SUlDZiIsInN1YiI6IjIiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.RknnxKEnLWIlQlbycuh6Yx3kRMX3oYPvYyA2T6WxjTo'
@@ -53,14 +53,14 @@ class DioHelper {
     } on DioException catch (ex) {
       return handleException(ex);
     } catch (e) {
-      log.error("Unexpected error in push method: $e");
+      log.error('Unexpected error in push method: $e');
       return CustomResponse(
-          isSuccess: false, message: "An unexpected error occurred");
+          isSuccess: false, message: 'An unexpected error occurred');
     }
   }
 
   CustomResponse handleException(DioException ex) {
-    String? msg = ex.response?.data["message"];
+    String? msg = ex.response?.data['message'];
     // print("*" * 30);
     // log.error("DioException type: ${ex.type}");
     // log.error("DioException message: ${ex.message}");
@@ -79,41 +79,13 @@ class CustomResponse {
   String? message;
 
   CustomResponse({required this.isSuccess, this.message, this.data}) {
-    message = message ?? data?["message"] ?? "Failed Try Again Later";
+    message = message ?? data?['message'] ?? 'Failed Try Again Later';
   }
 }
 
 class AppInterceptor extends Interceptor {
   final log = const Logger('');
 
-  @override
-  void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
-    super.onRequest(options, handler);
-    // log.fine("onRequest");
-    // log.info("( ${options.method} )${options.baseUrl}${options.path}");
-    // log.fine("Headers:");
-    // log.fine(options.headers);
-    // log.fine("Data");
-    // log.fine(options.data);
-    // log.fine("Query Parameters");
-    // log.fine(options.queryParameters);
-    // options.headers.putIfAbsent(
-    //   "Authorization",
-    //   () => "Bearer ${CacheHelper.token}",
-    // );
-    // log.fine("*" * 30);
-  }
 
-  @override
-  void onError(DioException err, ErrorInterceptorHandler handler) {
-    super.onError(err, handler);
-  }
 
-  @override
-  void onResponse(Response response, ResponseInterceptorHandler handler) {
-    super.onResponse(response, handler);
-    // log.fine("onResponse");
-    // log.fine(response.data);
-    // log.fine("*" * 30);
-  }
 }

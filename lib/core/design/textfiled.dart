@@ -43,7 +43,7 @@ class _AppTextFieldState extends State<AppTextField> {
       onTapOutside: (event) {setState(() {FocusManager.instance.primaryFocus?.unfocus();});},
       keyboardType: widget.keyboardType,
       maxLines: widget.maxLines,
-      obscuringCharacter: "*",
+      obscuringCharacter: '*',
       validator: widget.validator,
       obscureText: isHidden && widget.isPassword,
       decoration: InputDecoration(

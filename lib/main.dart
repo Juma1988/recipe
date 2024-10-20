@@ -1,10 +1,10 @@
 import 'package:app/core/design/navigator.dart';
 import 'package:app/core/design/theme.dart';
 import 'package:app/core/logic/service_locator.dart';
+import 'package:app/pages/view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'pages/color_test.dart';
 
 late int initScreen;
 
@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'ProjectAmit63',
         navigatorKey: navigatorKey,
-        home: ColorTest(),
+        home: HomePage(),
         theme: lightMode,
         darkTheme: darkMode,
       ),

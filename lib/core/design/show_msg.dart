@@ -3,13 +3,13 @@ import 'package:flutter/material.dart';
 
 enum MessageType { success, warning, error }
 
-void AppShowMsg(
+Future<void> AppShowMsg(
     String msg, {
       MessageType type = MessageType.success,
       Duration duration = const Duration(seconds: 6),
       VoidCallback? onTap,
       bool showCloseIcon = false,
-    }) {
+    }) async {
   final BuildContext context = navigatorKey.currentContext!;
 
   Color getBackgroundColor() {

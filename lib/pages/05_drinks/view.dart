@@ -1,4 +1,3 @@
-import 'package:app/core/design/navigator.dart';
 import 'package:app/pages/05_drinks/details_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -13,8 +12,6 @@ class DrinksView extends StatefulWidget {
 }
 
 class _DrinksViewState extends State<DrinksView> {
-   late final int aNumber;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,11 +28,13 @@ class _DrinksViewState extends State<DrinksView> {
         ),
         itemCount: drinks.length,
         itemBuilder: (context, index) => InkWell(
-          onTap: () => AppGoto(
-              DetailsView(
-                aNumber: aNumber,
-              ),
-              keepHistory: true),
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => DetailsView(itemNum: index)),
+            );
+          },
           child: Container(
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(8.r),

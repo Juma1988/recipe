@@ -3,18 +3,20 @@ part of 'view.dart';
 final List<Map<String, dynamic>> drinks = [
   {
     'id': 0,
-    'level': 'صعب',
-    'time_ready': 10,
-    'time_cook': 1,
+    'level': 'سهل',
+    'time_ready': 5,
+    'time_cook': 5,
+    'stats': false,
+    'ingredients_count': 4.0,
+    'steps_count': 5.0,
     'title_en': 'Mojito ice cream',
     'title_ar': 'موهيتو آيس كريم و رمان',
     'image': 'assets/images/Mojito_ice_cream.jpg',
-    'stats': false,
     'ingredients': [
-      'تلج وردي (شراب ورد + ماء)',
-      'آيس كريم فراولة',
-      'حبات رمان',
-      'صودا'
+      'كوب - ثلج وردي (شراب ورد + ماء)',
+      '2 كرات - آيس كريم فراولة',
+      '¼ كوب - حبات رمان',
+      'حسب الرغبة - صودا',
     ],
     'steps': [
       'املأ الكوب بالثلج الوردي.',
@@ -27,19 +29,21 @@ final List<Map<String, dynamic>> drinks = [
   {
     'id': 1,
     'level': 'سهل',
-    'time_ready': 10,
-    'time_cook': 5,
+    'time_ready': 5,
+    'time_cook': 5.0,
+    'ingredients_count': 6,
+    'steps_count': 6,
+    'stats': false,
     'title_en': 'Blue Mojito',
     'title_ar': 'موهيتو أزرق',
     'image': 'assets/images/blue_mojito.jpg',
-    'stats': false,
     'ingredients': [
-      'شرائح ليمون طازج',
-      'أوراق نعناع طازجة',
-      'سيرب أزرق',
-      'عصير ليمون طبيعي',
-      'ماء فوار (اسبريت أو صودا)',
-      'ثلج أزرق (سيرب أزرق مجمد)'
+      '6 شرائح - شرائح ليمون طازج',
+      '10 أوراق - أوراق نعناع طازجة',
+      '2 ملعقة كبيرة - سيرب أزرق',
+      '45 مل - عصير ليمون طبيعي',
+      '150 مل - ماء فوار (اسبريت أو صودا)',
+      'حسب الرغبة - ثلج أزرق (سيرب أزرق مجمد)'
     ],
     'steps': [
       'ضع شرائح الليمون وأوراق النعناع في قاع كوب طويل.',
@@ -52,21 +56,23 @@ final List<Map<String, dynamic>> drinks = [
   },
   {
     'id': 2,
-    'level': 'سهل', // يمكنك تعديل المستوى بناءً على رأيك
-    'time_ready': 10,
-    'time_cook': 5,
+    'level': 'سهل',
+    'time_ready': 5,
+    'time_cook': 5.0,
+    'ingredients_count': 6,
+    'steps_count': 7.0,
+    'stats': false,
     'title_en': 'Strawberry Orange Mojito',
     'title_ar': 'موهيتو الفراولة والبرتقال',
     'image': 'assets/images/strawberry_orange_mojito.jpg',
     'ingredients': [
-      'أوراق نعناع طازجة',
-      'ليمون',
-      'شراب فراولة',
-      'ثلج وردي',
-      'صودا أو سفن أب',
-      'عصير برتقال طبيعي'
+      '10 أوراق - أوراق نعناع طازجة',
+      'نصف حبة - ليمون',
+      '3 ملاعق كبيرة - شراب فراولة',
+      'حسب الرغبة - ثلج وردي',
+      '1 كوب - صودا أو سفن أب',
+      '½ كوب - عصير برتقال طبيعي'
     ],
-    'stats': false,
     'steps': [
       'ضع أوراق النعناع وقطع الليمون في قاع الكوب واهرسهم قليلاً.',
       'أضف شراب الفراولة.',
@@ -75,6 +81,32 @@ final List<Map<String, dynamic>> drinks = [
       'أضف الصودا أو السفن أب.',
       'اكمل بصب عصير البرتقال.',
       'زين بأوراق النعناع الطازجة.'
+    ]
+  },
+  {
+    'id': 3,
+    'level': 'سهل',
+    'prep_time': 5,
+    'cook_time': 0,
+    'title_en': 'Passion Fruit Mojito',
+    'title_ar': 'موهيتو الباشن فروت',
+    'image': 'assets/images/passion_fruit_mojito.jpg',
+    'stats': false,
+    'ingredients_count': 5,
+    'steps_count': 5,
+    'ingredients': [
+      'أوراق نعناع طازجة - 10 أوراق',
+      'ليمون - نصف حبة',
+      'شراب باشن فروت - 2 ملعقة كبيرة',
+      'ثلج مجروش - حسب الرغبة',
+      'صودا أو سفن أب - 150 مل'
+    ],
+    'steps': [
+      'اهرس أوراق النعناع وقطع الليمون في قاع كوب الطحن.',
+      'أضف شراب الباشن فروت.',
+      'املأ الكوب بالثلج المجروش.',
+      'اعصر نصف ليمونة فوق الثلج.',
+      'أضف الصودا أو السفن أب.'
     ]
   }
 ];

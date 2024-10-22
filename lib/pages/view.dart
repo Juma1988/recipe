@@ -15,7 +15,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  late int _currentIndex = 0;
+  late int _currentIndex = 4;
   final List _page = [
     BreakfastView(),
     LunchView(),

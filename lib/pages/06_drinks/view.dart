@@ -1,24 +1,25 @@
 import 'dart:math';
 
-import 'package:app/pages/01_breakfast/details_view.dart';
-import 'package:app/pages/01_breakfast/model.dart';
+import 'package:app/pages/06_drinks/details_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class BrackfastView extends StatefulWidget {
-  const BrackfastView({super.key});
+part 'model.dart';
+
+class DrinksView extends StatefulWidget {
+  const DrinksView({super.key});
 
   @override
-  State<BrackfastView> createState() => _BrackfastViewState();
+  State<DrinksView> createState() => _DrinksViewState();
 }
 
-class _BrackfastViewState extends State<BrackfastView> {
+class _DrinksViewState extends State<DrinksView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('افطار و وجبات خفيفة'),
+        title: Text('المشروبات'),
       ),
       floatingActionButton: FloatingActionButton(
         child: SvgPicture.asset('assets/images/dont_know.svg'),
@@ -26,8 +27,8 @@ class _BrackfastViewState extends State<BrackfastView> {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => BreakfastDetailsView(
-                  itemNum: Random().nextInt(breakfast.length)),
+              builder: (context) =>
+                  DrinksDetailsView(itemNum: Random().nextInt(drinks.length)),
             ),
           );
         },
@@ -40,13 +41,13 @@ class _BrackfastViewState extends State<BrackfastView> {
           childAspectRatio: 200 / 70,
           mainAxisSpacing: 8.h,
         ),
-        itemCount: breakfast.length,
+        itemCount: drinks.length,
         itemBuilder: (context, index) => InkWell(
           onTap: () {
             Navigator.push(
               context,
               MaterialPageRoute(
-                  builder: (context) => BreakfastDetailsView(itemNum: index)),
+                  builder: (context) => DrinksDetailsView(itemNum: index)),
             );
           },
           child: Container(
@@ -71,7 +72,7 @@ class _BrackfastViewState extends State<BrackfastView> {
                             topRight: Radius.circular(8.r),
                             bottomRight: Radius.circular(8.r))),
                     child: Image.asset(
-                      breakfast[index]['image'],
+                      drinks[index]['image'],
                       fit: BoxFit.cover,
                       height: double.infinity,
                       width: double.infinity,
@@ -90,14 +91,13 @@ class _BrackfastViewState extends State<BrackfastView> {
                           Row(
                             children: [
                               Text(
-                                breakfast[index]['title_ar'],
+                                drinks[index]['title_ar'],
                                 maxLines: 2,
                                 textAlign: TextAlign.start,
                                 style: TextStyle(
                                     fontFamily: 'font01',
-                                    color: Theme.of(context)
-                                        .colorScheme
-                                        .onPrimary,
+                                    color:
+                                        Theme.of(context).colorScheme.onPrimary,
                                     fontSize: 18,
                                     fontWeight: FontWeight.w600),
                               ),
@@ -105,12 +105,12 @@ class _BrackfastViewState extends State<BrackfastView> {
                               IconButton(
                                 onPressed: () {
                                   setState(() {
-                                    breakfast[index]['stats'] =
-                                        !breakfast[index]['stats'];
+                                    drinks[index]['stats'] =
+                                        !drinks[index]['stats'];
                                   });
                                 },
                                 icon: Icon(
-                                  !breakfast[index]['stats']
+                                  !drinks[index]['stats']
                                       ? Icons.favorite_border
                                       : Icons.favorite,
                                   color: Colors.redAccent,
@@ -124,12 +124,11 @@ class _BrackfastViewState extends State<BrackfastView> {
                             children: [
                               Expanded(
                                 child: Container(
-                                  padding:
-                                      EdgeInsets.symmetric(horizontal: 6),
+                                  padding: EdgeInsets.symmetric(horizontal: 6),
                                   height: 20,
                                   width: 75,
                                   child: Text(
-                                      'المستوي : ${breakfast[index]['level']}'),
+                                      'المستوي : ${drinks[index]['level']}'),
                                   decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(10),
                                       color: Theme.of(context)
@@ -140,12 +139,11 @@ class _BrackfastViewState extends State<BrackfastView> {
                               SizedBox(width: 9),
                               Expanded(
                                 child: Container(
-                                  padding:
-                                      EdgeInsets.symmetric(horizontal: 6),
+                                  padding: EdgeInsets.symmetric(horizontal: 6),
                                   height: 20,
                                   width: 75,
                                   child: Text(
-                                      'مدة التحضير ${breakfast[index]['prep_time']}'),
+                                      'مدة التحضير ${drinks[index]['prep_time']}'),
                                   decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(10),
                                       color: Theme.of(context)
@@ -166,10 +164,9 @@ class _BrackfastViewState extends State<BrackfastView> {
                                   height: 20.h,
                                   width: 75.w,
                                   child: Text(
-                                      'عدد المقادير  ${(breakfast[index]['ingredients'] as List?)?.length ?? 0}'),
+                                      'عدد المقادير  ${(drinks[index]['ingredients'] as List?)?.length ?? 0}'),
                                   decoration: BoxDecoration(
-                                      borderRadius:
-                                          BorderRadius.circular(10.r),
+                                      borderRadius: BorderRadius.circular(10.r),
                                       color: Theme.of(context)
                                           .colorScheme
                                           .primary),
@@ -183,7 +180,7 @@ class _BrackfastViewState extends State<BrackfastView> {
                                   height: 20.h,
                                   width: 75.w,
                                   child: Text(
-                                      'مده الطهو ${breakfast[index]['cook_time']}'),
+                                      'مده الطهو ${drinks[index]['cook_time']}'),
                                   decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(10),
                                       color: Theme.of(context)

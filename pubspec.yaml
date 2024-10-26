@@ -29,6 +29,7 @@ dependencies:
   email_validator: ^3.0.0
   pull_to_refresh: ^2.0.0
   salomon_bottom_bar: ^3.3.2
+  awesome_drawer_bar: ^1.2.0
 
 
 
@@ -42,6 +43,12 @@ dev_dependencies:
 flutter:
   assets:
     - assets/images/
+    - assets/images/01_breakfast/
+    - assets/images/02_lunch/
+    - assets/images/03_salad/
+    - assets/images/04_sauces/
+    - assets/images/05_sweets/
+    - assets/images/06_drinks/
     - assets/lottie/
     - assets/svg/
     - assets/fonts/

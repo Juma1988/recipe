@@ -1,25 +1,27 @@
 import 'package:app/pages/01_breakfast/view.dart';
 import 'package:app/pages/02_lunch/view.dart';
-import 'package:app/pages/03_souses/view.dart';
-import 'package:app/pages/04_sweets/view.dart';
-import 'package:app/pages/05_drinks/view.dart';
+import 'package:app/pages/03_salad/view.dart';
+import 'package:app/pages/04_sauces/view.dart';
+import 'package:app/pages/05_sweets/view.dart';
+import 'package:app/pages/06_drinks/view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+class HomePage1 extends StatefulWidget {
+  const HomePage1({super.key});
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<HomePage1> createState() => _HomePage1State();
 }
 
-class _HomePageState extends State<HomePage> {
-  late int _currentIndex = 4;
+class _HomePage1State extends State<HomePage1> {
+  late int _currentIndex = 2;
   final List _page = [
-    BreakfastView(),
+    BrackfastView(),
     LunchView(),
-    SousesView(),
+    SaladView(),
+    SaucesView(),
     SweetsView(),
     DrinksView()
   ];
@@ -66,7 +68,7 @@ class _HomePageState extends State<HomePage> {
                 height: 24,
                 colorFilter: ColorFilter.mode(Colors.orange, BlendMode.srcIn),
               ),
-              title: Text('صوصات'),
+              title: Text('اخري'),
               selectedColor: Colors.orange,
             ),
 
@@ -88,8 +90,7 @@ class _HomePageState extends State<HomePage> {
                 'assets/svg/drinks.svg',
                 width: 24,
                 height: 24,
-                colorFilter:
-                    ColorFilter.mode(Colors.green, BlendMode.srcIn),
+                colorFilter: ColorFilter.mode(Colors.green, BlendMode.srcIn),
               ),
               title: Text('مشروبات'),
               selectedColor: Colors.green,

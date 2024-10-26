@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 enum MessageType { success, warning, error }
 
-Future<void> AppShowMsg(
+Future<void> appShowMsg(
     String msg, {
       MessageType type = MessageType.success,
       Duration duration = const Duration(seconds: 6),

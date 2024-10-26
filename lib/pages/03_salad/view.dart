@@ -1,22 +1,36 @@
-import 'package:app/pages/05_drinks/details_view.dart';
+import 'dart:math';
+
+import 'package:app/pages/03_salad/details_view.dart';
+import 'package:app/pages/03_salad/model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
-part 'model.dart';
-
-class DrinksView extends StatefulWidget {
-  const DrinksView({super.key});
+class SaladView extends StatefulWidget {
+  const SaladView({super.key});
 
   @override
-  State<DrinksView> createState() => _DrinksViewState();
+  State<SaladView> createState() => _SaladViewState();
 }
 
-class _DrinksViewState extends State<DrinksView> {
+class _SaladViewState extends State<SaladView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('المشروبات'),
+        title: Text('سلطات و صوصات'),
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: SvgPicture.asset('assets/images/dont_know.svg'),
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) =>
+                  SaladDetailsView(itemNum: Random().nextInt(salad.length)),
+            ),
+          );
+        },
       ),
       body: GridView.builder(
         padding: EdgeInsets.all(8.r),
@@ -26,13 +40,13 @@ class _DrinksViewState extends State<DrinksView> {
           childAspectRatio: 200 / 70,
           mainAxisSpacing: 8.h,
         ),
-        itemCount: drinks.length,
+        itemCount: salad.length,
         itemBuilder: (context, index) => InkWell(
           onTap: () {
             Navigator.push(
               context,
               MaterialPageRoute(
-                  builder: (context) => DetailsView(itemNum: index)),
+                  builder: (context) => SaladDetailsView(itemNum: index)),
             );
           },
           child: Container(
@@ -57,7 +71,7 @@ class _DrinksViewState extends State<DrinksView> {
                             topRight: Radius.circular(8.r),
                             bottomRight: Radius.circular(8.r))),
                     child: Image.asset(
-                      drinks[index]['image'],
+                      salad[index]['image'],
                       fit: BoxFit.cover,
                       height: double.infinity,
                       width: double.infinity,
@@ -76,7 +90,8 @@ class _DrinksViewState extends State<DrinksView> {
                           Row(
                             children: [
                               Text(
-                                drinks[index]['title_ar'],
+                                salad[index]['title_ar'],
+                                maxLines: 2,
                                 textAlign: TextAlign.start,
                                 style: TextStyle(
                                     fontFamily: 'font01',
@@ -89,12 +104,12 @@ class _DrinksViewState extends State<DrinksView> {
                               IconButton(
                                 onPressed: () {
                                   setState(() {
-                                    drinks[index]['stats'] =
-                                        !drinks[index]['stats'];
+                                    salad[index]['stats'] =
+                                        !salad[index]['stats'];
                                   });
                                 },
                                 icon: Icon(
-                                  !drinks[index]['stats']
+                                  !salad[index]['stats']
                                       ? Icons.favorite_border
                                       : Icons.favorite,
                                   color: Colors.redAccent,
@@ -112,7 +127,7 @@ class _DrinksViewState extends State<DrinksView> {
                                   height: 20,
                                   width: 75,
                                   child: Text(
-                                      'المستوي : ${drinks[index]['level']}'),
+                                      'المستوي : ${salad[index]['level']}'),
                                   decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(10),
                                       color: Theme.of(context)
@@ -127,7 +142,7 @@ class _DrinksViewState extends State<DrinksView> {
                                   height: 20,
                                   width: 75,
                                   child: Text(
-                                      'مدة التحضير ${drinks[index]['time_ready']}'),
+                                      'مدة التحضير ${salad[index]['prep_time']}'),
                                   decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(10),
                                       color: Theme.of(context)
@@ -148,7 +163,7 @@ class _DrinksViewState extends State<DrinksView> {
                                   height: 20.h,
                                   width: 75.w,
                                   child: Text(
-                                      'عدد المقادير  ${(drinks[index]['ingredients'] as List?)?.length ?? 0}'),
+                                      'عدد المقادير  ${(salad[index]['ingredients'] as List?)?.length ?? 0}'),
                                   decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(10.r),
                                       color: Theme.of(context)
@@ -164,7 +179,7 @@ class _DrinksViewState extends State<DrinksView> {
                                   height: 20.h,
                                   width: 75.w,
                                   child: Text(
-                                      'مده الطهو ${drinks[index]['time_cook']}'),
+                                      'مده الطهو ${salad[index]['cook_time']}'),
                                   decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(10),
                                       color: Theme.of(context)

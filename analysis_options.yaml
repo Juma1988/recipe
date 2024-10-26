@@ -18,6 +18,7 @@ analyzer:
     body_might_complete_normally_nullable: ignore
     depend_on_referenced_packages: ignore
 
+
 linter:
   rules:
     prefer_const_constructors: true

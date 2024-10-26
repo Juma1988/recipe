@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:quick_log/quick_log.dart';
 
-final log = const Logger('');
+const log = Logger('');
 
 class DioHelper {
   DioHelper() {
